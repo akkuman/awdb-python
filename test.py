@@ -13,10 +13,11 @@ def get_random_ip():
                      random.randrange(0,255)]])
 
 def main():
-    filename = r'C:\Users\admin\Desktop\awdb-java\IP_city_single_BD09_WGS84_ipv6_awdb.awdb'
+    # 如需解析其他字段，请根据test.py 提供的字段解析样例进行解析
+    filename = r'C:\Users\admin\Desktop\awdb-java\IP_trial_single_WGS84_awdb.awdb'
     reader = awdb.open_database(filename)
-    ip = '2001:DB8:0:23:8:800:200C:417A'
-    # ip = '1.8.153.255'
+    # ip = '2001:DB8:0:23:8:800:200C:417A'
+    ip = '1.8.153.255'
     (record, prefix_len) = reader.get_with_prefix_len(ip)
     if "." in ip:
         continent = record.get("continent", b'').decode("utf-8") if sys.version_info[0] == 3 else record.get("continent", '')
@@ -57,7 +58,7 @@ def main():
                 print("radius:" + radius)
                 print('---')
 
-      # ipv4的输出
+    
     elif ":" in ip:
         province = record.get("province", b'').decode("utf-8") if sys.version_info[0] == 3 else record.get("province", '')
         city = record.get("city", b'').decode("utf-8") if sys.version_info[0] == 3 else record.get("city", '')
@@ -91,7 +92,10 @@ def main():
         print('---')
 
     else:
-        print "不合法地址"
+        print ("不合法地址")
+
+    print("record:" , record)
+    
 
 
 if __name__ == '__main__':
