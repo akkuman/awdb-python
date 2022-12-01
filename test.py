@@ -14,7 +14,7 @@ def get_random_ip():
 
 def main():
     # 如需解析其他字段，请根据test.py 提供的字段解析样例进行解析
-    filename = r'C:\Users\admin\Desktop\awdb-java\IP_trial_single_WGS84_awdb.awdb'
+    filename = r'./IP.awdb'
     reader = awdb.open_database(filename)
     # ip = '2001:DB8:0:23:8:800:200C:417A'
     ip = '1.8.153.255'
